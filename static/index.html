@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>라이선스 매니저</title>
+</head>
+<body>
+  <h1>라이선스 매니저</h1>
+  <p>서버 연결 확인 중...</p>
+  <pre id="output"></pre>
+  <script>
+    fetch('/api/licenses')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('output').textContent =
+          'API 연결 성공!\n' + JSON.stringify(data, null, 2)
+      })
+      .catch(e => document.getElementById('output').textContent = '오류: ' + e)
+  </script>
+</body>
+</html>
